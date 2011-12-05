@@ -32,22 +32,22 @@ init (void)
     ibus_bus_request_name (bus, "org.freedesktop.IBus.Enchant", 0);
 
     component = ibus_component_new ("org.freedesktop.IBus.Enchant",
-                                    "English Writer",
-                                    "0.1.0",
+                                    "Icenaldic Character Input Method",
+                                    "0.0.1",
                                     "GPL",
-                                    "Peng Huang <shawn.p.huang@gmail.com>",
-                                    "http://code.google.com/p/ibus/",
+                                    "Chenguang Wang <w3cing@gmail.com>",
+                                    "https://github.com/wecing/ibus-icelandic/",
                                     "",
-                                    "ibus-tmpl");
+                                    "ibus-icelandic");
     ibus_component_add_engine (component,
                                ibus_engine_desc_new ("enchant",
-                                                     "English Writer",
-                                                     "English Writer",
-                                                     "en",
+                                                     "Icenaldic Character Input Method",
+                                                     "Icenaldic Character Input Method",
+                                                     "is",
                                                      "GPL",
-                                                     "Peng Huang <shawn.p.huang@gmail.com>",
+                                                     "Chenguang Wang <w3cing@gmail.com>",
                                                      PKGDATADIR"/icon/ibus-enchant.svg",
-                                                     "en"));
+                                                     "is"));
     ibus_bus_register_component (bus, component);
 }
 
