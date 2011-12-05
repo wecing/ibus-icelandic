@@ -13,6 +13,7 @@ Keymap:
     (compared with English) characters' inputting. For example:
         <qa> or <Qa>: yields "á";
         <qE> or <QE>: yields "É";
+        <qqa>: still "a".
 
     Finally, þ and Þ are bound to <qt> and <qT>.
 
