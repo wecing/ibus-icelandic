@@ -9,7 +9,8 @@ Keymap:
         <z>: ð
         <c>: æ
 
-    And <q> is used as "modify key"; pressing q (or Q) will toggle on/off Icelandic-specific (compared to English) characters' inputting. For example:
+    And <q> is used as "modify key"; pressing q (or Q) will toggle on/off Icelandic-specific
+    (compared with English) characters' inputting. For example:
         <qa> or <Qa>: yields "á";
         <qE> or <QE>: yields "É";
 
