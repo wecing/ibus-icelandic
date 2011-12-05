@@ -19,7 +19,7 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 # if not 1, append datestamp to the version number.
-m4_define([package_name], [ibus-tmpl])
+m4_define([package_name], [ibus-icelandic])
 m4_define([ibus_released], [0])
 m4_define([ibus_major_version], [1])
 m4_define([ibus_minor_version], [2])
@@ -77,12 +77,9 @@ AM_GNU_GETTEXT_VERSION(0.16.1)
 # OUTPUT files
 AC_CONFIG_FILES(po/Makefile.in
 Makefile
-ibus-tmpl.spec
+ibus-icelandic.spec
 src/Makefile
 src/enchant.xml.in
-engine/Makefile
-engine/ibus-engine-enchant
-engine/enchant.engine
 icons/Makefile
 m4/Makefile
 )

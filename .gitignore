@@ -32,5 +32,14 @@ ltmain.sh
 missing
 stamp-h1
 py-compile
-ibus-tmpl*.tar.*
-ibus-tmpl.spec
+# ibus-tmpl*.tar.*
+# ibus-tmpl.spec
+ibus-icelandic*.tar.*
+ibus-icelandic.spec
+
+engine/enchant.engine
+engine/ibus-engine-enchant
+src/enchant.xml
+src/enchant.xml.in
+src/ibus-engine-enchant
+

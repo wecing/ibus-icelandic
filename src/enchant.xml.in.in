@@ -5,18 +5,18 @@
 	<description>Enchant Component</description>
 	<exec>${libexecdir}/ibus-engine-enchant --ibus</exec>
 	<version>@VERSION@</version>
-	<author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
+	<author>Chenguang Wang &lt;w3cing@gmail.com&gt;</author>
 	<license>GPL</license>
-	<homepage>http://code.google.com/p/ibus</homepage>
+	<homepage>https://github.com/wecing/ibus-icelandic</homepage>
 	<textdomain>ibus-enchant</textdomain>
 
 	<engines>
 		<engine>
 			<name>enchant</name>
-			<language>ko</language>
+			<language>is</language>
 			<license>GPL</license>
-			<author>Peng Huang &lt;shawn.p.huang@gmail.com&gt;</author>
-			<icon>${pkgdatadir}/icons/ibus-enchant.png</icon>
+			<author>Chenguang Wang &lt;w3cing@gmail.com&gt;</author>
+			<icon>${pkgdatadir}/icons/ibus-enchant.svg</icon>
 			<layout>us</layout>
 			<longname>Enchant</longname>
 			<description>Enchant Input Method</description>

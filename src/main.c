@@ -6,6 +6,17 @@
 static IBusBus *bus = NULL;
 static IBusFactory *factory = NULL;
 
+/* command line options */
+static gboolean ibus = FALSE;
+static gboolean verbose = FALSE;
+
+static const GOptionEntry entries[] =
+{
+    { "ibus", 'i', 0, G_OPTION_ARG_NONE, &ibus, "component is executed by ibus", NULL },
+    { "verbose", 'v', 0, G_OPTION_ARG_NONE, &verbose, "verbose", NULL },
+    { NULL },
+};
+
 static void
 ibus_disconnected_cb (IBusBus  *bus,
                       gpointer  user_data)
@@ -17,8 +28,6 @@ ibus_disconnected_cb (IBusBus  *bus,
 static void
 init (void)
 {
-    IBusComponent *component;
-
     ibus_init ();
 
     bus = ibus_bus_new ();
@@ -29,31 +38,49 @@ init (void)
     g_object_ref_sink (factory);
     ibus_factory_add_engine (factory, "enchant", IBUS_TYPE_ENCHANT_ENGINE);
 
-    ibus_bus_request_name (bus, "org.freedesktop.IBus.Enchant", 0);
+    if (ibus) {
+        ibus_bus_request_name (bus, "org.freedesktop.IBus.Enchant", 0);
+    }
+    else {
+        IBusComponent *component;
 
-    component = ibus_component_new ("org.freedesktop.IBus.Enchant",
-                                    "Icenaldic Character Input Method",
-                                    "0.0.1",
-                                    "GPL",
-                                    "Chenguang Wang <w3cing@gmail.com>",
-                                    "https://github.com/wecing/ibus-icelandic/",
-                                    "",
-                                    "ibus-icelandic");
-    ibus_component_add_engine (component,
-                               ibus_engine_desc_new ("enchant",
-                                                     "Icenaldic Character Input Method",
-                                                     "Icenaldic Character Input Method",
-                                                     "is",
-                                                     "GPL",
-                                                     "Chenguang Wang <w3cing@gmail.com>",
-                                                     PKGDATADIR"/icon/ibus-enchant.svg",
-                                                     "is"));
-    ibus_bus_register_component (bus, component);
+        component = ibus_component_new ("org.freedesktop.IBus.Enchant",
+                                        "Enchant",
+                                        "0.1.0",
+                                        "GPL",
+                                        "Peng Huang <shawn.p.huang@gmail.com>",
+                                        "http://code.google.com/p/ibus/",
+                                        "",
+                                        "ibus-icelandic");
+        ibus_component_add_engine (component,
+                                   ibus_engine_desc_new ("enchant",
+                                                         "Enchant",
+                                                         "Enchant",
+                                                         "is",
+                                                         "GPL",
+                                                         "Peng Huang <shawn.p.huang@gmail.com>",
+                                                         PKGDATADIR"/icons/ibus-enchant.svg",
+                                                         "us"));
+        ibus_bus_register_component (bus, component);
+    }
 }
 
-int main()
+int main(int argc, char **argv)
 {
+    GError *error = NULL;
+    GOptionContext *context;
 
+    /* Parse the command line */
+    context = g_option_context_new ("- ibus template engine");
+    g_option_context_add_main_entries (context, entries, "ibus-icelandic");
+
+    if (!g_option_context_parse (context, &argc, &argv, &error)) {
+      g_print ("Option parsing failed: %s\n", error->message);
+      g_error_free (error);
+      return (-1);
+    }
+
+    /* Go */
     init ();
     ibus_main ();
 }
