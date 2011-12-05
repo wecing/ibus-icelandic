@@ -15,7 +15,7 @@ Keymap:
 
     Finally, þ and Þ are bound to <qt> and <qT>.
 
-Compile:
+Compile (with ibus already installed and configured correctly):
 
     ./autogen.sh
     ./configure --prefix=/usr
