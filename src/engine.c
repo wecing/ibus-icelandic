@@ -241,7 +241,7 @@ ibus_enchant_engine_process_key_event (IBusEngine *engine,
      case IBUS_Escape:
           _mkey_enabled = FALSE;
           return FALSE;
-     case IBUS_Shift_L:
+//      case IBUS_Shift_L:
      case IBUS_Shift_R:
           _engl_input = !_engl_input;
           _mkey_enabled = FALSE;

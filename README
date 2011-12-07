@@ -17,6 +17,9 @@ Keymap:
 
     Finally, þ and Þ are bound to <qt> and <qT>.
 
+Switching between English and Icelandic:
+    Just use right shift!
+
 Compile (with ibus already installed and configured correctly):
 
     ./autogen.sh
